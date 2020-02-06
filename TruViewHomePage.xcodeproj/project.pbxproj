@@ -79,11 +79,9 @@
 		A5603E0023ECAE3A0090E90E /* TruViewHomePage */ = {
 			isa = PBXGroup;
 			children = (
-				A5603E0123ECAE3A0090E90E /* AppDelegate.swift */,
-				A5603E0323ECAE3A0090E90E /* SceneDelegate.swift */,
+				A5603E2623ECAFC70090E90E /* SupportingFiles */,
 				A5603E0523ECAE3A0090E90E /* ViewController.swift */,
 				A5603E0D23ECAE3F0090E90E /* Assets.xcassets */,
-				A5603E0F23ECAE3F0090E90E /* LaunchScreen.storyboard */,
 				A5603E1223ECAE3F0090E90E /* Info.plist */,
 				A5603E0A23ECAE3A0090E90E /* TruViewHomePage.xcdatamodeld */,
 			);
@@ -97,6 +95,16 @@
 				A5603E1D23ECAE3F0090E90E /* Info.plist */,
 			);
 			path = TruViewHomePageTests;
+			sourceTree = "<group>";
+		};
+		A5603E2623ECAFC70090E90E /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				A5603E0123ECAE3A0090E90E /* AppDelegate.swift */,
+				A5603E0323ECAE3A0090E90E /* SceneDelegate.swift */,
+				A5603E0F23ECAE3F0090E90E /* LaunchScreen.storyboard */,
+			);
+			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
