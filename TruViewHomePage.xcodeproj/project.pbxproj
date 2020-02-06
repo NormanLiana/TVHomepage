@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		A5603E0223ECAE3A0090E90E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5603E0123ECAE3A0090E90E /* AppDelegate.swift */; };
 		A5603E0423ECAE3A0090E90E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5603E0323ECAE3A0090E90E /* SceneDelegate.swift */; };
-		A5603E0623ECAE3A0090E90E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5603E0523ECAE3A0090E90E /* ViewController.swift */; };
 		A5603E0C23ECAE3A0090E90E /* TruViewHomePage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A5603E0A23ECAE3A0090E90E /* TruViewHomePage.xcdatamodeld */; };
 		A5603E0E23ECAE3F0090E90E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5603E0D23ECAE3F0090E90E /* Assets.xcassets */; };
 		A5603E1123ECAE3F0090E90E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5603E0F23ECAE3F0090E90E /* LaunchScreen.storyboard */; };
 		A5603E1C23ECAE3F0090E90E /* TruViewHomePageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5603E1B23ECAE3F0090E90E /* TruViewHomePageTests.swift */; };
+		A5603E2923ECB0F80090E90E /* HomePageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5603E2823ECB0F80090E90E /* HomePageVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,7 +30,6 @@
 		A5603DFE23ECAE3A0090E90E /* TruViewHomePage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TruViewHomePage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5603E0123ECAE3A0090E90E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A5603E0323ECAE3A0090E90E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A5603E0523ECAE3A0090E90E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A5603E0B23ECAE3A0090E90E /* TruViewHomePage.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TruViewHomePage.xcdatamodel; sourceTree = "<group>"; };
 		A5603E0D23ECAE3F0090E90E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A5603E1023ECAE3F0090E90E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -38,6 +37,7 @@
 		A5603E1723ECAE3F0090E90E /* TruViewHomePageTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TruViewHomePageTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5603E1B23ECAE3F0090E90E /* TruViewHomePageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TruViewHomePageTests.swift; sourceTree = "<group>"; };
 		A5603E1D23ECAE3F0090E90E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5603E2823ECB0F80090E90E /* HomePageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				A5603E2623ECAFC70090E90E /* SupportingFiles */,
-				A5603E0523ECAE3A0090E90E /* ViewController.swift */,
+				A5603E2723ECB08A0090E90E /* Controllers */,
 				A5603E0D23ECAE3F0090E90E /* Assets.xcassets */,
 				A5603E1223ECAE3F0090E90E /* Info.plist */,
 				A5603E0A23ECAE3A0090E90E /* TruViewHomePage.xcdatamodeld */,
@@ -105,6 +105,14 @@
 				A5603E0F23ECAE3F0090E90E /* LaunchScreen.storyboard */,
 			);
 			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		A5603E2723ECB08A0090E90E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A5603E2823ECB0F80090E90E /* HomePageVC.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,8 +216,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5603E0C23ECAE3A0090E90E /* TruViewHomePage.xcdatamodeld in Sources */,
-				A5603E0623ECAE3A0090E90E /* ViewController.swift in Sources */,
 				A5603E0223ECAE3A0090E90E /* AppDelegate.swift in Sources */,
+				A5603E2923ECB0F80090E90E /* HomePageVC.swift in Sources */,
 				A5603E0423ECAE3A0090E90E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
