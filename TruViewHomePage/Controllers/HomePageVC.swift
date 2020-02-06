@@ -25,8 +25,9 @@ class HomePageVC: UIViewController {
     }()
     
     lazy var mapListViewSegController: UISegmentedControl = {
-        let items = ["List View", "Map View"]
+        let items = ["Map View", "List View"]
         let sc = UISegmentedControl(items: items)
+        sc.selectedSegmentIndex = 0
         return sc
     }()
     
