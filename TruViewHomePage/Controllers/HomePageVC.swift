@@ -19,6 +19,8 @@ class HomePageVC: UIViewController {
     
     lazy var filterMenuButton: UIButton = {
         let btn = UIButton()
+        btn.setTitle("Filter", for: .normal)
+        btn.setTitleColor(.blue, for: .normal)
         return btn
     }()
     
