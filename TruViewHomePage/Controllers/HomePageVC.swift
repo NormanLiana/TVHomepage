@@ -44,10 +44,12 @@ class HomePageVC: UIViewController {
     }
     private func addSubViews() {
         view.addSubview(searchBar)
+        view.addSubview(filterMenuButton)
     }
     
     private func addConstraints() {
         constrainSearchBar()
+        constrainFilterMenuButton()
     }
     
     // MARK: - Constraint Methods
@@ -55,6 +57,12 @@ class HomePageVC: UIViewController {
         searchBar.translatesAutoresizingMaskIntoConstraints = false
         
         [searchBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor), searchBar.leadingAnchor.constraint(equalTo: view.leadingAnchor), searchBar.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.825), searchBar.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.1)].forEach({$0.isActive = true})
+    }
+    
+    private func constrainFilterMenuButton() {
+        filterMenuButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        [filterMenuButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor), filterMenuButton.leadingAnchor.constraint(equalTo: searchBar.trailingAnchor), filterMenuButton.trailingAnchor.constraint(equalTo: view.trailingAnchor), filterMenuButton.heightAnchor.constraint(equalTo: searchBar.heightAnchor)].forEach({$0.isActive = true})
     }
 
 }
