@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import MapKit
+import CoreLocation
 
 class HomePageVC: UIViewController {
 
@@ -31,6 +33,11 @@ class HomePageVC: UIViewController {
         return sc
     }()
     
+    lazy var mapView: MKMapView = {
+        let mv = MKMapView()
+        return mv
+    }()
+    
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,12 +54,14 @@ class HomePageVC: UIViewController {
         view.addSubview(searchBar)
         view.addSubview(filterMenuButton)
         view.addSubview(mapListViewSegController)
+        view.addSubview(mapView)
     }
     
     private func addConstraints() {
         constrainSearchBar()
         constrainFilterMenuButton()
         constrainSegmentedController()
+        constrainMapView()
     }
     
     // MARK: - Constraint Methods
@@ -72,6 +81,12 @@ class HomePageVC: UIViewController {
         mapListViewSegController.translatesAutoresizingMaskIntoConstraints = false
         
         [mapListViewSegController.topAnchor.constraint(equalTo: searchBar.bottomAnchor), mapListViewSegController.leadingAnchor.constraint(equalTo: view.leadingAnchor), mapListViewSegController.trailingAnchor.constraint(equalTo: view.trailingAnchor), mapListViewSegController.heightAnchor.constraint(equalTo: searchBar.heightAnchor, multiplier: 0.4)].forEach({$0.isActive = true})
+    }
+    
+    private func constrainMapView() {
+        mapView.translatesAutoresizingMaskIntoConstraints = false
+        
+        [mapView.topAnchor.constraint(equalTo: mapListViewSegController.bottomAnchor), mapView.leadingAnchor.constraint(equalTo: view.leadingAnchor), mapView.trailingAnchor.constraint(equalTo: view.trailingAnchor), mapView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)].forEach({$0.isActive = true})
     }
 
 }
