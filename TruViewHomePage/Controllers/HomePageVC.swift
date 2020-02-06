@@ -13,6 +13,7 @@ class HomePageVC: UIViewController {
     // MARK: - UI Objects
     lazy var searchBar: UISearchBar = {
         let sb = UISearchBar()
+        sb.searchBarStyle = .minimal
         return sb
     }()
     
@@ -27,12 +28,31 @@ class HomePageVC: UIViewController {
         return sc
     }()
     
-    
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setUpVCViews()
+        addSubViews()
+        addConstraints()
     }
     
+    // MARK: - Private Methods
+    private func setUpVCViews() {
+        view.backgroundColor = .white
+    }
+    private func addSubViews() {
+        view.addSubview(searchBar)
+    }
+    
+    private func addConstraints() {
+        constrainSearchBar()
+    }
+    
+    // MARK: - Constraint Methods
+    private func constrainSearchBar() {
+        searchBar.translatesAutoresizingMaskIntoConstraints = false
+        
+        [searchBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor), searchBar.leadingAnchor.constraint(equalTo: view.leadingAnchor), searchBar.trailingAnchor.constraint(equalTo: view.trailingAnchor), searchBar.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.1)].forEach({$0.isActive = true})
+    }
 
 }
