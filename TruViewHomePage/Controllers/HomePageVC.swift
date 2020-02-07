@@ -58,6 +58,13 @@ class HomePageVC: UIViewController {
         return img
     }()
     
+    lazy var priceLabel: UILabel = {
+        let label = UILabel()
+        return label
+    }()
+    
+    
+    
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
