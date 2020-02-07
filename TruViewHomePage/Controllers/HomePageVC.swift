@@ -60,10 +60,15 @@ class HomePageVC: UIViewController {
     
     lazy var priceLabel: UILabel = {
         let label = UILabel()
+        label.text = "$2000"
         return label
     }()
     
-    
+    lazy var bedAndBathLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Bed: 2, Bath: 1"
+        return label
+    }()
     
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
