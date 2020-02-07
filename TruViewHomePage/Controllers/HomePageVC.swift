@@ -38,6 +38,7 @@ class HomePageVC: UIViewController {
         return mv
     }()
     
+    // MARK: - Slide card UI Objects
     lazy var slideCard: UIView = {
         let view = UIView()
         view.backgroundColor = .white
@@ -48,6 +49,12 @@ class HomePageVC: UIViewController {
         let img = UIImageView()
         img.image = UIImage(systemName: "arrowtriangle.up")
         img.tintColor = .black
+        return img
+    }()
+    
+    lazy var aptThumbnail: UIImageView = {
+        let img = UIImageView()
+        img.backgroundColor = .blue
         return img
     }()
     
