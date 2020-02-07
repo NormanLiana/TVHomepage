@@ -38,6 +38,19 @@ class HomePageVC: UIViewController {
         return mv
     }()
     
+    lazy var slideCard: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        return view
+    }()
+    
+    lazy var upArrowIndicator: UIImageView = {
+        let img = UIImageView()
+        img.image = UIImage(systemName: "arrowtriangle.up")
+        img.tintColor = .black
+        return img
+    }()
+    
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
