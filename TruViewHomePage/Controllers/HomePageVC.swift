@@ -76,6 +76,14 @@ class HomePageVC: UIViewController {
         return label
     }()
     
+    // MARK: - Properties
+    let slideCardHeight: CGFloat = 900
+    
+    var slideCardViewTopConstraint: NSLayoutConstraint?
+    var newSlideCardViewTopConstraint: NSLayoutConstraint?
+    var fullScreenSlideCardViewTopConstraint: NSLayoutConstraint?
+    
+    
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -132,5 +140,27 @@ class HomePageVC: UIViewController {
         
         [mapView.topAnchor.constraint(equalTo: mapListViewSegController.bottomAnchor), mapView.leadingAnchor.constraint(equalTo: view.leadingAnchor), mapView.trailingAnchor.constraint(equalTo: view.trailingAnchor), mapView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)].forEach({$0.isActive = true})
     }
+    
+    // MARK: - Constraint Methods for Slide Card View
+    private func createSlideCardViewConstraints() {
+        slideCardViewTopConstraint = slideCardView.topAnchor.constraint(equalTo: view.bottomAnchor, constant:  -slideCardHeight + 400)
+        slideCardViewTopConstraint?.isActive = true
+
+        newSlideCardViewTopConstraint = slideCardView.topAnchor.constraint(equalTo: view.bottomAnchor, constant: -65)
+        newSlideCardViewTopConstraint?.isActive = false
+
+        fullScreenSlideCardViewTopConstraint = slideCardView.topAnchor.constraint(equalTo: view.topAnchor, constant: 30)
+        fullScreenSlideCardViewTopConstraint?.isActive = false
+    }
+    
+    private func constrainSlideCardView() {
+        slideCardView.translatesAutoresizingMaskIntoConstraints = false
+        
+        [slideCardView.leadingAnchor.constraint(equalTo: view.leadingAnchor), slideCardView.trailingAnchor.constraint(equalTo: view.trailingAnchor), slideCardView.heightAnchor.constraint(equalToConstant: slideCardHeight)].forEach({$0.isActive = true})
+        createSlideCardViewConstraints()
+    }
+    
+    
 
 }
+
