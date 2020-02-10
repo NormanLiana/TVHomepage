@@ -160,6 +160,12 @@ class HomePageVC: UIViewController {
         createSlideCardViewConstraints()
     }
     
+    private func constrainArrowImage() {
+        upArrowIndicator.translatesAutoresizingMaskIntoConstraints = false
+        
+        [upArrowIndicator.topAnchor.constraint(equalTo: slideCardView.topAnchor), upArrowIndicator.centerXAnchor.constraint(equalTo: slideCardView.centerXAnchor), upArrowIndicator.heightAnchor.constraint(equalTo: slideCardView.heightAnchor, multiplier: 0.1), upArrowIndicator.widthAnchor.constraint(equalTo: slideCardView.heightAnchor)].forEach({$0.isActive = true})
+    }
+    
     private func activateFullOpenSliderViewConstraints() {
         fullScreenSlideCardViewConstraint?.isActive = true
         slideCardViewTopConstraint?.isActive = false
