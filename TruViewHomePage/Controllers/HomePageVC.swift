@@ -101,6 +101,7 @@ class HomePageVC: UIViewController {
         view.addSubview(filterMenuButton)
         view.addSubview(mapListViewSegController)
         view.addSubview(mapView)
+        view.addSubview(slideCardView)
         
         slideCardView.addSubview(upArrowIndicator)
         slideCardView.addSubview(aptThumbnail)
