@@ -39,7 +39,7 @@ class HomePageVC: UIViewController {
     }()
     
     // MARK: - Slide card UI Objects
-    lazy var slideCard: UIView = {
+    lazy var slideCardView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
         return view
@@ -93,6 +93,8 @@ class HomePageVC: UIViewController {
         view.addSubview(filterMenuButton)
         view.addSubview(mapListViewSegController)
         view.addSubview(mapView)
+        
+        
     }
     
     private func addConstraints() {
