@@ -54,6 +54,7 @@ class HomePageVC: UIViewController {
     
     lazy var aptThumbnail: UIImageView = {
         let img = UIImageView()
+        img.image = UIImage(systemName: "bed.double")
         img.backgroundColor = .blue
         return img
     }()
@@ -67,6 +68,11 @@ class HomePageVC: UIViewController {
     lazy var bedAndBathLabel: UILabel = {
         let label = UILabel()
         label.text = "Bed: 2, Bath: 1"
+        return label
+    }()
+    
+    lazy var sqFootageLabel: UILabel = {
+        let label = UILabel()
         return label
     }()
     
