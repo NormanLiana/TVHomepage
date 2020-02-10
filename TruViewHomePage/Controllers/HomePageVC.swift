@@ -82,7 +82,7 @@ class HomePageVC: UIViewController {
     let slideCardHeight: CGFloat = 900
     var slideCardState: SlideCardState = .collapsed
     
-    var slideCardViewTopConstraint: NSLayoutConstraint?
+    var collapsedslideCardViewTopConstraint: NSLayoutConstraint?
     var halfOpenSlideCardViewTopConstraint: NSLayoutConstraint?
     var fullScreenSlideCardTopConstraint: NSLayoutConstraint?
     
@@ -216,8 +216,8 @@ class HomePageVC: UIViewController {
     
     // MARK: - Constraint Methods for Slide Card View
     private func createSlideCardViewConstraints() {
-        slideCardViewTopConstraint = slideCardView.topAnchor.constraint(equalTo: view.bottomAnchor, constant:  -slideCardHeight + 400)
-        slideCardViewTopConstraint?.isActive = false
+        collapsedslideCardViewTopConstraint = slideCardView.topAnchor.constraint(equalTo: view.bottomAnchor, constant:  -slideCardHeight + 400)
+        collapsedslideCardViewTopConstraint?.isActive = false
 
         halfOpenSlideCardViewTopConstraint = slideCardView.topAnchor.constraint(equalTo: view.bottomAnchor, constant: -65)
         halfOpenSlideCardViewTopConstraint?.isActive = true
@@ -265,19 +265,19 @@ class HomePageVC: UIViewController {
     
     private func activateFullOpenSliderViewConstraints() {
         fullScreenSlideCardTopConstraint?.isActive = true
-        slideCardViewTopConstraint?.isActive = false
+        collapsedslideCardViewTopConstraint?.isActive = false
         halfOpenSlideCardViewTopConstraint?.isActive = false
     }
     
     private func activateHalfOpenSliderViewConstraints() {
         fullScreenSlideCardTopConstraint?.isActive = false
-        slideCardViewTopConstraint?.isActive = true
+        collapsedslideCardViewTopConstraint?.isActive = true
         halfOpenSlideCardViewTopConstraint?.isActive = false
     }
     
     private func activateClosedSliderViewConstraints() {
         fullScreenSlideCardTopConstraint?.isActive = false
-        slideCardViewTopConstraint?.isActive = false
+        collapsedslideCardViewTopConstraint?.isActive = false
         halfOpenSlideCardViewTopConstraint?.isActive = true
     }
     
