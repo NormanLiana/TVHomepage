@@ -80,6 +80,7 @@ class HomePageVC: UIViewController {
     
     // MARK: - Properties
     let slideCardHeight: CGFloat = 900
+    var slideCardState: SlideCardState = .halfOpen
     
     var slideCardViewTopConstraint: NSLayoutConstraint?
     var newSlideCardViewTopConstraint: NSLayoutConstraint?
@@ -92,6 +93,57 @@ class HomePageVC: UIViewController {
         setUpVCViews()
         addSubViews()
         addConstraints()
+    }
+    
+    // MARK: - ObjC Methods
+    @objc func respondToSwipeGesture(gesture: UISwipeGestureRecognizer?) {
+        if let swipeGesture = gesture {
+            switch swipeGesture.direction {
+            case .down:
+                switch slideCardState {
+                case .fullOpen:
+                    activateHalfOpenSliderViewConstraints()
+                    slideCardState = .halfOpen
+                case .halfOpen:
+                    activateClosedSliderViewConstraints()
+                    slideCardState = .collapsed
+                case .collapsed:
+                    print("Its closed already")
+                }
+                
+                UIView.animate(withDuration: 1.0, delay: 0, usingSpringWithDamping: 0.80, initialSpringVelocity: 0, options: .curveEaseInOut, animations: { [weak self] in
+                
+                self?.view.layoutIfNeeded()
+                
+                    if self?.slideCardState == .collapsed {
+                    self?.slideCardView.alpha = 0.5
+                }
+                
+                }, completion: nil)
+            case .up:
+                switch slideCardState {
+                case .fullOpen:
+                    print("Its already fully open")
+                case .halfOpen:
+                    activateFullOpenSliderViewConstraints()
+                    slideCardState = .fullOpen
+                case .collapsed:
+                    activateHalfOpenSliderViewConstraints()
+                    slideCardState = .halfOpen
+                }
+                
+                UIView.animate(withDuration: 1.0, delay: 0, usingSpringWithDamping: 0.80, initialSpringVelocity: 0, options: .curveEaseInOut, animations: { [weak self] in
+                
+                self?.view.layoutIfNeeded()
+                
+                self?.slideCardView.alpha = 1.0
+                }, completion: nil)
+                
+            default:
+                break
+                
+            }
+        }
     }
     
     // MARK: - Private Methods
