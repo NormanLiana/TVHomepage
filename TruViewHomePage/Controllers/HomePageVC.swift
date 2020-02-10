@@ -84,7 +84,7 @@ class HomePageVC: UIViewController {
     
     var slideCardViewTopConstraint: NSLayoutConstraint?
     var newSlideCardViewTopConstraint: NSLayoutConstraint?
-    var fullScreenSlideCardViewConstraint: NSLayoutConstraint?
+    var fullScreenSlideCardTopConstraint: NSLayoutConstraint?
     
     
     // MARK: - Lifecycle Methods
@@ -222,8 +222,8 @@ class HomePageVC: UIViewController {
         newSlideCardViewTopConstraint = slideCardView.topAnchor.constraint(equalTo: view.bottomAnchor, constant: -65)
         newSlideCardViewTopConstraint?.isActive = true
 
-        fullScreenSlideCardViewConstraint = slideCardView.topAnchor.constraint(equalTo: view.topAnchor, constant: 30)
-        fullScreenSlideCardViewConstraint?.isActive = false
+        fullScreenSlideCardTopConstraint = slideCardView.topAnchor.constraint(equalTo: view.topAnchor, constant: 30)
+        fullScreenSlideCardTopConstraint?.isActive = false
     }
     
     private func constrainSlideCardView() {
@@ -264,19 +264,19 @@ class HomePageVC: UIViewController {
     }
     
     private func activateFullOpenSliderViewConstraints() {
-        fullScreenSlideCardViewConstraint?.isActive = true
+        fullScreenSlideCardTopConstraint?.isActive = true
         slideCardViewTopConstraint?.isActive = false
         newSlideCardViewTopConstraint?.isActive = false
     }
     
     private func activateHalfOpenSliderViewConstraints() {
-        fullScreenSlideCardViewConstraint?.isActive = false
+        fullScreenSlideCardTopConstraint?.isActive = false
         slideCardViewTopConstraint?.isActive = true
         newSlideCardViewTopConstraint?.isActive = false
     }
     
     private func activateClosedSliderViewConstraints() {
-        fullScreenSlideCardViewConstraint?.isActive = false
+        fullScreenSlideCardTopConstraint?.isActive = false
         slideCardViewTopConstraint?.isActive = false
         newSlideCardViewTopConstraint?.isActive = true
     }
