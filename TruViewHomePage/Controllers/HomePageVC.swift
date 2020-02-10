@@ -80,7 +80,7 @@ class HomePageVC: UIViewController {
     
     // MARK: - Properties
     let slideCardHeight: CGFloat = 900
-    var slideCardState: SlideCardState = .halfOpen
+    var slideCardState: SlideCardState = .collapsed
     
     var slideCardViewTopConstraint: NSLayoutConstraint?
     var newSlideCardViewTopConstraint: NSLayoutConstraint?
@@ -93,6 +93,7 @@ class HomePageVC: UIViewController {
         setUpVCViews()
         addSubViews()
         addConstraints()
+        loadGestures()
     }
     
     // MARK: - ObjC Methods
@@ -178,6 +179,16 @@ class HomePageVC: UIViewController {
         constrainPricelabel()
     }
     
+    private func loadGestures() {
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(respondToSwipeGesture(gesture:)))
+        swipeDown.direction = .down
+        self.slideCardView.addGestureRecognizer(swipeDown)
+        
+        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(respondToSwipeGesture(gesture:)))
+        swipeUp.direction = .up
+        self.slideCardView.addGestureRecognizer(swipeUp)
+    }
+    
     // MARK: - Constraint Methods
     private func constrainSearchBar() {
         searchBar.translatesAutoresizingMaskIntoConstraints = false
@@ -206,10 +217,10 @@ class HomePageVC: UIViewController {
     // MARK: - Constraint Methods for Slide Card View
     private func createSlideCardViewConstraints() {
         slideCardViewTopConstraint = slideCardView.topAnchor.constraint(equalTo: view.bottomAnchor, constant:  -slideCardHeight + 400)
-        slideCardViewTopConstraint?.isActive = true
+        slideCardViewTopConstraint?.isActive = false
 
         newSlideCardViewTopConstraint = slideCardView.topAnchor.constraint(equalTo: view.bottomAnchor, constant: -65)
-        newSlideCardViewTopConstraint?.isActive = false
+        newSlideCardViewTopConstraint?.isActive = true
 
         fullScreenSlideCardViewConstraint = slideCardView.topAnchor.constraint(equalTo: view.topAnchor, constant: 30)
         fullScreenSlideCardViewConstraint?.isActive = false
