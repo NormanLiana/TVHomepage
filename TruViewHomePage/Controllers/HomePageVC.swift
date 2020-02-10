@@ -94,7 +94,11 @@ class HomePageVC: UIViewController {
         view.addSubview(mapListViewSegController)
         view.addSubview(mapView)
         
-        
+        slideCardView.addSubview(upArrowIndicator)
+        slideCardView.addSubview(aptThumbnail)
+        slideCardView.addSubview(priceLabel)
+        slideCardView.addSubview(bedAndBathLabel)
+        slideCardView.addSubview(sqFootageLabel)
     }
     
     private func addConstraints() {
