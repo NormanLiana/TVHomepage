@@ -62,17 +62,19 @@ class HomePageVC: UIViewController {
     lazy var priceLabel: UILabel = {
         let label = UILabel()
         label.text = "$2000"
+        label.textAlignment = .right
         return label
     }()
     
     lazy var bedAndBathLabel: UILabel = {
         let label = UILabel()
-        label.text = "Bed: 2, Bath: 1"
+        label.text = "Beds: 2 Baths: 1"
         return label
     }()
     
     lazy var sqFootageLabel: UILabel = {
         let label = UILabel()
+        label.text = "700 Sq. Feet"
         return label
     }()
     
