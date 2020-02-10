@@ -115,6 +115,10 @@ class HomePageVC: UIViewController {
         constrainFilterMenuButton()
         constrainSegmentedController()
         constrainMapView()
+        // MARK: - Slide Card Constraint Methods
+        constrainSlideCardView()
+        constrainArrowImage()
+        constrainAptThumbnailImage()
     }
     
     // MARK: - Constraint Methods
@@ -164,7 +168,19 @@ class HomePageVC: UIViewController {
     private func constrainArrowImage() {
         upArrowIndicator.translatesAutoresizingMaskIntoConstraints = false
         
-        [upArrowIndicator.topAnchor.constraint(equalTo: slideCardView.topAnchor), upArrowIndicator.centerXAnchor.constraint(equalTo: slideCardView.centerXAnchor), upArrowIndicator.heightAnchor.constraint(equalTo: slideCardView.heightAnchor, multiplier: 0.1), upArrowIndicator.widthAnchor.constraint(equalTo: slideCardView.heightAnchor)].forEach({$0.isActive = true})
+        [upArrowIndicator.topAnchor.constraint(equalTo: slideCardView.topAnchor), upArrowIndicator.centerXAnchor.constraint(equalTo: slideCardView.centerXAnchor), upArrowIndicator.heightAnchor.constraint(equalTo: slideCardView.heightAnchor, multiplier: 0.031), upArrowIndicator.widthAnchor.constraint(equalTo: upArrowIndicator.heightAnchor)].forEach({$0.isActive = true})
+    }
+    
+    private func constrainAptThumbnailImage() {
+        aptThumbnail.translatesAutoresizingMaskIntoConstraints = false
+        
+        [aptThumbnail.topAnchor.constraint(equalTo: upArrowIndicator.bottomAnchor, constant: 10), aptThumbnail.leadingAnchor.constraint(equalTo: slideCardView.leadingAnchor), aptThumbnail.trailingAnchor.constraint(equalTo: slideCardView.trailingAnchor), aptThumbnail.heightAnchor.constraint(equalTo: slideCardView.widthAnchor, multiplier: 0.7)].forEach({$0.isActive = true})
+    }
+    
+    private func constrainPriceLabel() {
+        priceLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        [priceLabel.topAnchor.constraint(equalTo: aptThumbnail.bottomAnchor), priceLabel.leadingAnchor.constraint(equalTo: slideCardView.leadingAnchor), priceLabel.trailingAnchor.constraint(equalTo: slideCardView.trailingAnchor), priceLabel.heightAnchor.constraint(equalTo: aptThumbnail.heightAnchor, multiplier: 0.2)].forEach({$0.isActive = true})
     }
     
     private func activateFullOpenSliderViewConstraints() {
