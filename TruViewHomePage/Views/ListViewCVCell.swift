@@ -34,4 +34,22 @@ class ListViewCVCell: UICollectionViewCell {
         lbl.text = "600 sq Feet"
         return lbl
     }()
+    
+    // MARK: - Initializers
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        addSubViews()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Private Methods
+    private func addSubViews() {
+        addSubview(aptThumbnail)
+        addSubview(priceLabel)
+        addSubview(bedAndbathLabel)
+        addSubview(sqFootageLabel)
+    }
 }
