@@ -13,7 +13,7 @@ class ListViewCVCell: UICollectionViewCell {
     // MARK: - UI Objects
     lazy var aptThumbnail: UIImageView = {
         let imgView = UIImageView()
-        imgView.image = UIImage(systemName: "bed.double")
+//        imgView.image = UIImage(systemName: "bed.double")
         return imgView
     }()
     
