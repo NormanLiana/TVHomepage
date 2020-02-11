@@ -80,6 +80,11 @@ class HomePageVC: UIViewController {
         return label
     }()
     
+    lazy var aptDescriptionTextView: UITextView = {
+        let txtView = UITextView()
+        return txtView
+    }()
+    
     // MARK: - Properties
     let slideCardHeight: CGFloat = 900
     var slideCardState: SlideCardState = .collapsed
@@ -165,6 +170,7 @@ class HomePageVC: UIViewController {
         slideCardView.addSubview(priceLabel)
         slideCardView.addSubview(bedAndBathLabel)
         slideCardView.addSubview(sqFootageLabel)
+        slideCardView.addSubview(aptDescriptionTextView)
     }
     
     private func addConstraints() {
@@ -179,6 +185,7 @@ class HomePageVC: UIViewController {
         constrainBedAndBathlabel()
         constrainSqFootagelabel()
         constrainPricelabel()
+        constrainAptTextView()
     }
     
     private func loadGestures() {
@@ -263,6 +270,12 @@ class HomePageVC: UIViewController {
         priceLabel.translatesAutoresizingMaskIntoConstraints = false
         
         [priceLabel.topAnchor.constraint(equalTo: aptThumbnail.bottomAnchor), priceLabel.leadingAnchor.constraint(equalTo: slideCardView.centerXAnchor), priceLabel.trailingAnchor.constraint(equalTo: slideCardView.trailingAnchor), priceLabel.bottomAnchor.constraint(equalTo: bedAndBathLabel.bottomAnchor)].forEach({$0.isActive = true})
+    }
+    
+    private func constrainAptTextView() {
+        aptDescriptionTextView.translatesAutoresizingMaskIntoConstraints = false
+        
+        [aptDescriptionTextView.topAnchor.constraint(equalTo: slideCardView.centerYAnchor), aptDescriptionTextView.centerXAnchor.constraint(equalTo: slideCardView.centerXAnchor), aptDescriptionTextView.widthAnchor.constraint(equalTo: slideCardView.widthAnchor, multiplier: 0.85), aptDescriptionTextView.bottomAnchor.constraint(equalTo: slideCardView.bottomAnchor)].forEach({$0.isActive = true})
     }
     
     private func activateFullOpenSliderViewConstraints() {
