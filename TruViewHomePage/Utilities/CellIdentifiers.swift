@@ -7,3 +7,7 @@
 //
 
 import Foundation
+
+enum CellIdentifiers: String {
+    case listViewCVCell
+}
