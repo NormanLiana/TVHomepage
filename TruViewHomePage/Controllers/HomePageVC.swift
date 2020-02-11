@@ -102,6 +102,7 @@ class HomePageVC: UIViewController {
         setUpVCViews()
         addSubViews()
         addConstraints()
+        delegation()
         loadGestures()
     }
     
@@ -160,20 +161,11 @@ class HomePageVC: UIViewController {
         }
     }
     
-//    @objc func segControllerValueChanged(_ sender: UISegmentedControl) {
-//        switch sender.selectedSegmentIndex {
-//        case 0:
-//            
-//        case 1:
-//        }
-//    }
-    
     // MARK: - Private Methods
     private func setUpVCViews() {
         view.backgroundColor = .white
-        
-        
     }
+    
     private func addSubViews() {
         view.addSubview(searchBar)
         view.addSubview(filterMenuButton)
@@ -202,6 +194,11 @@ class HomePageVC: UIViewController {
         constrainSqFootagelabel()
         constrainPricelabel()
         constrainAptTextView()
+    }
+    
+    private func delegation() {
+        listCV.delegate = self
+        listCV.dataSource = self
     }
     
     private func loadGestures() {
