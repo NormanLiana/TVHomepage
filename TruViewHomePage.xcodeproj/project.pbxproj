@@ -18,6 +18,7 @@
 		A5603E2F23F328D00090E90E /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5603E2E23F328CF0090E90E /* ListView.swift */; };
 		A5603E3123F34E100090E90E /* ListViewCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5603E3023F34E100090E90E /* ListViewCVCell.swift */; };
 		A5603E3323F34E510090E90E /* CellIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5603E3223F34E510090E90E /* CellIdentifiers.swift */; };
+		A5603E3523F376470090E90E /* SlideCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5603E3423F376470090E90E /* SlideCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		A5603E2E23F328CF0090E90E /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		A5603E3023F34E100090E90E /* ListViewCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewCVCell.swift; sourceTree = "<group>"; };
 		A5603E3223F34E510090E90E /* CellIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellIdentifiers.swift; sourceTree = "<group>"; };
+		A5603E3423F376470090E90E /* SlideCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 			children = (
 				A5603E2E23F328CF0090E90E /* ListView.swift */,
 				A5603E3023F34E100090E90E /* ListViewCVCell.swift */,
+				A5603E3423F376470090E90E /* SlideCardView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 				A5603E2B23F216D00090E90E /* SlideCardState.swift in Sources */,
 				A5603E2F23F328D00090E90E /* ListView.swift in Sources */,
 				A5603E0223ECAE3A0090E90E /* AppDelegate.swift in Sources */,
+				A5603E3523F376470090E90E /* SlideCardView.swift in Sources */,
 				A5603E2923ECB0F80090E90E /* HomePageVC.swift in Sources */,
 				A5603E3123F34E100090E90E /* ListViewCVCell.swift in Sources */,
 				A5603E3323F34E510090E90E /* CellIdentifiers.swift in Sources */,
