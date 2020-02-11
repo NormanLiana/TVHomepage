@@ -39,6 +39,7 @@ class ListViewCVCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubViews()
+        addConstraints()
     }
     
     required init?(coder: NSCoder) {
@@ -51,5 +52,16 @@ class ListViewCVCell: UICollectionViewCell {
         addSubview(priceLabel)
         addSubview(bedAndbathLabel)
         addSubview(sqFootageLabel)
+    }
+    
+    private func addConstraints() {
+        constrainThumbnailImage()
+    }
+    
+    // MARK: - Constraint Methods
+    private func constrainThumbnailImage() {
+        aptThumbnail.translatesAutoresizingMaskIntoConstraints = false
+        
+        [aptThumbnail.topAnchor.constraint(equalTo: contentView.topAnchor), aptThumbnail.leadingAnchor.constraint(equalTo: contentView.leadingAnchor), aptThumbnail.trailingAnchor.constraint(equalTo: contentView.trailingAnchor), aptThumbnail.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.7)].forEach({$0.isActive = true})
     }
 }
