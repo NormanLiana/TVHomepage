@@ -41,7 +41,9 @@ class HomePageVC: UIViewController {
     // MARK: - Slide card UI Objects
     lazy var slideCardView: UIView = {
         let view = UIView()
-        view.backgroundColor = .white
+        view.backgroundColor = .gray
+        view.clipsToBounds = true
+        view.layer.cornerRadius = 20
         return view
     }()
     
