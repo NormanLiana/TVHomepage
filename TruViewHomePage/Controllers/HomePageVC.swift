@@ -93,6 +93,8 @@ class HomePageVC: UIViewController {
     var halfOpenSlideCardViewTopConstraint: NSLayoutConstraint?
     var fullScreenSlideCardTopConstraint: NSLayoutConstraint?
     
+    unowned var listView: ListView { return self.view as! ListView}
+    unowned var listCV: UICollectionView { return listView.collectionView}
     
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
@@ -101,6 +103,10 @@ class HomePageVC: UIViewController {
         addSubViews()
         addConstraints()
         loadGestures()
+    }
+    
+    override func loadView() {
+        self.view = ListView()
     }
     
     // MARK: - ObjC Methods
@@ -154,9 +160,19 @@ class HomePageVC: UIViewController {
         }
     }
     
+//    @objc func segControllerValueChanged(_ sender: UISegmentedControl) {
+//        switch sender.selectedSegmentIndex {
+//        case 0:
+//            
+//        case 1:
+//        }
+//    }
+    
     // MARK: - Private Methods
     private func setUpVCViews() {
         view.backgroundColor = .white
+        
+        
     }
     private func addSubViews() {
         view.addSubview(searchBar)
@@ -299,3 +315,27 @@ class HomePageVC: UIViewController {
 
 }
 
+// MARK: - Extensions
+extension HomePageVC: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if let cell = listCV.dequeueReusableCell(withReuseIdentifier: CellIdentifiers.listViewCVCell.rawValue, for: indexPath) as? ListViewCVCell {
+            cell.aptThumbnail.image = UIImage(systemName: "bed.double")
+            return cell
+        }
+        return UICollectionViewCell()
+    }
+    
+    
+}
+
+extension HomePageVC: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 125, height: 125)
+    }
+}
+
+extension HomePageVC: UICollectionViewDelegate {}
