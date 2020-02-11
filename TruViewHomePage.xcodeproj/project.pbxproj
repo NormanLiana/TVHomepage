@@ -15,6 +15,9 @@
 		A5603E1C23ECAE3F0090E90E /* TruViewHomePageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5603E1B23ECAE3F0090E90E /* TruViewHomePageTests.swift */; };
 		A5603E2923ECB0F80090E90E /* HomePageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5603E2823ECB0F80090E90E /* HomePageVC.swift */; };
 		A5603E2B23F216D00090E90E /* SlideCardState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5603E2A23F216D00090E90E /* SlideCardState.swift */; };
+		A5603E2F23F328D00090E90E /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5603E2E23F328CF0090E90E /* ListView.swift */; };
+		A5603E3123F34E100090E90E /* ListViewCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5603E3023F34E100090E90E /* ListViewCVCell.swift */; };
+		A5603E3323F34E510090E90E /* CellIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5603E3223F34E510090E90E /* CellIdentifiers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,9 @@
 		A5603E1D23ECAE3F0090E90E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5603E2823ECB0F80090E90E /* HomePageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageVC.swift; sourceTree = "<group>"; };
 		A5603E2A23F216D00090E90E /* SlideCardState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideCardState.swift; sourceTree = "<group>"; };
+		A5603E2E23F328CF0090E90E /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		A5603E3023F34E100090E90E /* ListViewCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewCVCell.swift; sourceTree = "<group>"; };
+		A5603E3223F34E510090E90E /* CellIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellIdentifiers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +87,7 @@
 		A5603E0023ECAE3A0090E90E /* TruViewHomePage */ = {
 			isa = PBXGroup;
 			children = (
+				A5603E2D23F328660090E90E /* Views */,
 				A5603E2623ECAFC70090E90E /* SupportingFiles */,
 				A5603E2723ECB08A0090E90E /* Controllers */,
 				A5603E2C23F216F20090E90E /* Utilities */,
@@ -122,8 +129,18 @@
 			isa = PBXGroup;
 			children = (
 				A5603E2A23F216D00090E90E /* SlideCardState.swift */,
+				A5603E3223F34E510090E90E /* CellIdentifiers.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		A5603E2D23F328660090E90E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A5603E2E23F328CF0090E90E /* ListView.swift */,
+				A5603E3023F34E100090E90E /* ListViewCVCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,8 +245,11 @@
 			files = (
 				A5603E0C23ECAE3A0090E90E /* TruViewHomePage.xcdatamodeld in Sources */,
 				A5603E2B23F216D00090E90E /* SlideCardState.swift in Sources */,
+				A5603E2F23F328D00090E90E /* ListView.swift in Sources */,
 				A5603E0223ECAE3A0090E90E /* AppDelegate.swift in Sources */,
 				A5603E2923ECB0F80090E90E /* HomePageVC.swift in Sources */,
+				A5603E3123F34E100090E90E /* ListViewCVCell.swift in Sources */,
+				A5603E3323F34E510090E90E /* CellIdentifiers.swift in Sources */,
 				A5603E0423ECAE3A0090E90E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
