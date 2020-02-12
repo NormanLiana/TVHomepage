@@ -172,11 +172,13 @@ class HomePageVC: UIViewController {
     
     private func showMapView() {
         mapView.isHidden = false
+        slideCardView.isHidden = false
         listView.isHidden = true
     }
     
     private func showListView() {
         listView.isHidden = false
+        slideCardView.isHidden = true
         mapView.isHidden = true
     }
     
