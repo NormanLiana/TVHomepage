@@ -47,43 +47,7 @@ class HomePageVC: UIViewController {
         return view
     }()
     
-    lazy var upArrowIndicator: UIImageView = {
-        let img = UIImageView()
-        img.image = UIImage(systemName: "arrowtriangle.up")
-        img.tintColor = .black
-        return img
-    }()
     
-    lazy var aptThumbnail: UIImageView = {
-        let img = UIImageView()
-        img.image = UIImage(systemName: "bed.double")
-        img.backgroundColor = .blue
-        return img
-    }()
-    
-    lazy var priceLabel: UILabel = {
-        let label = UILabel()
-        label.text = "$2000"
-        label.textAlignment = .right
-        return label
-    }()
-    
-    lazy var bedAndBathLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Beds: 2 Baths: 1"
-        return label
-    }()
-    
-    lazy var sqFootageLabel: UILabel = {
-        let label = UILabel()
-        label.text = "700 Sq. Feet"
-        return label
-    }()
-    
-    lazy var aptDescriptionTextView: UITextView = {
-        let txtView = UITextView()
-        return txtView
-    }()
     
     // MARK: - Properties
     let slideCardHeight: CGFloat = 900
@@ -172,13 +136,6 @@ class HomePageVC: UIViewController {
         view.addSubview(mapListViewSegController)
         view.addSubview(mapView)
         view.addSubview(slideCardView)
-        
-        slideCardView.addSubview(upArrowIndicator)
-        slideCardView.addSubview(aptThumbnail)
-        slideCardView.addSubview(priceLabel)
-        slideCardView.addSubview(bedAndBathLabel)
-        slideCardView.addSubview(sqFootageLabel)
-        slideCardView.addSubview(aptDescriptionTextView)
     }
     
     private func addConstraints() {
@@ -188,12 +145,6 @@ class HomePageVC: UIViewController {
         constrainMapView()
         // MARK: - Slide Card Constraint Methods
         constrainSlideCardView()
-        constrainArrowImage()
-        constrainAptThumbnailImage()
-        constrainBedAndBathlabel()
-        constrainSqFootagelabel()
-        constrainPricelabel()
-        constrainAptTextView()
     }
     
     private func delegation() {
@@ -253,42 +204,6 @@ class HomePageVC: UIViewController {
         
         [slideCardView.leadingAnchor.constraint(equalTo: view.leadingAnchor), slideCardView.trailingAnchor.constraint(equalTo: view.trailingAnchor), slideCardView.heightAnchor.constraint(equalToConstant: slideCardHeight)].forEach({$0.isActive = true})
         createSlideCardViewConstraints()
-    }
-    
-    private func constrainArrowImage() {
-        upArrowIndicator.translatesAutoresizingMaskIntoConstraints = false
-        
-        [upArrowIndicator.topAnchor.constraint(equalTo: slideCardView.topAnchor), upArrowIndicator.centerXAnchor.constraint(equalTo: slideCardView.centerXAnchor), upArrowIndicator.heightAnchor.constraint(equalTo: slideCardView.heightAnchor, multiplier: 0.031), upArrowIndicator.widthAnchor.constraint(equalTo: upArrowIndicator.heightAnchor)].forEach({$0.isActive = true})
-    }
-    
-    private func constrainAptThumbnailImage() {
-        aptThumbnail.translatesAutoresizingMaskIntoConstraints = false
-        
-        [aptThumbnail.topAnchor.constraint(equalTo: upArrowIndicator.bottomAnchor, constant: 10), aptThumbnail.leadingAnchor.constraint(equalTo: slideCardView.leadingAnchor), aptThumbnail.trailingAnchor.constraint(equalTo: slideCardView.trailingAnchor), aptThumbnail.heightAnchor.constraint(equalTo: slideCardView.widthAnchor, multiplier: 0.7)].forEach({$0.isActive = true})
-    }
-    
-    private func constrainBedAndBathlabel() {
-        bedAndBathLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        [bedAndBathLabel.topAnchor.constraint(equalTo: aptThumbnail.bottomAnchor), bedAndBathLabel.leadingAnchor.constraint(equalTo: slideCardView.leadingAnchor), bedAndBathLabel.trailingAnchor.constraint(equalTo: slideCardView.centerXAnchor), bedAndBathLabel.heightAnchor.constraint(equalTo: aptThumbnail.heightAnchor, multiplier: 0.2)].forEach({$0.isActive = true})
-    }
-    
-    private func constrainSqFootagelabel() {
-        sqFootageLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        [sqFootageLabel.topAnchor.constraint(equalTo: bedAndBathLabel.bottomAnchor), sqFootageLabel.leadingAnchor.constraint(equalTo: slideCardView.leadingAnchor), sqFootageLabel.trailingAnchor.constraint(equalTo: slideCardView.centerXAnchor), sqFootageLabel.heightAnchor.constraint(equalTo: bedAndBathLabel.heightAnchor)].forEach({$0.isActive = true})
-    }
-    
-    private func constrainPricelabel() {
-        priceLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        [priceLabel.topAnchor.constraint(equalTo: aptThumbnail.bottomAnchor), priceLabel.leadingAnchor.constraint(equalTo: slideCardView.centerXAnchor), priceLabel.trailingAnchor.constraint(equalTo: slideCardView.trailingAnchor), priceLabel.bottomAnchor.constraint(equalTo: bedAndBathLabel.bottomAnchor)].forEach({$0.isActive = true})
-    }
-    
-    private func constrainAptTextView() {
-        aptDescriptionTextView.translatesAutoresizingMaskIntoConstraints = false
-        
-        [aptDescriptionTextView.topAnchor.constraint(equalTo: slideCardView.centerYAnchor), aptDescriptionTextView.centerXAnchor.constraint(equalTo: slideCardView.centerXAnchor), aptDescriptionTextView.widthAnchor.constraint(equalTo: slideCardView.widthAnchor, multiplier: 0.85), aptDescriptionTextView.bottomAnchor.constraint(equalTo: slideCardView.bottomAnchor)].forEach({$0.isActive = true})
     }
     
     private func activateFullOpenSliderViewConstraints() {
