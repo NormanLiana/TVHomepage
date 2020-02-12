@@ -46,6 +46,7 @@ class SlideCardView: UIView {
     
     lazy var aptDescriptionTextView: UITextView = {
         let txtView = UITextView()
+        txtView.text = "Decription goes here"
         return txtView
     }()
     
@@ -54,6 +55,7 @@ class SlideCardView: UIView {
         super.init(frame: frame)
         addSubViews()
         addConstraints()
+        setUpViewUI()
     }
     
     required init?(coder: NSCoder) {
@@ -77,6 +79,11 @@ class SlideCardView: UIView {
         constrainSqFootagelabel()
         constrainPricelabel()
         constrainAptTextView()
+    }
+    
+    private func setUpViewUI() {
+        backgroundColor = .gray
+        layer.cornerRadius = 20
     }
     
     // MARK: - Constraint Methods
