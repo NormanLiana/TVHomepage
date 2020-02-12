@@ -121,11 +121,9 @@ class HomePageVC: UIViewController {
     @objc func segControlValueChanged(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
-            mapView.isHidden = false
-            listView.isHidden = true
+            showMapView()
         case 1:
-            listView.isHidden = false
-            mapView.isHidden = true
+            showListView()
         default:
             break
         }
@@ -134,8 +132,7 @@ class HomePageVC: UIViewController {
     // MARK: - Private Methods
     private func setUpInitialVCViews() {
         view.backgroundColor = .white
-        mapView.isHidden = false
-        listView.isHidden = true
+        showMapView()
     }
     
     private func addSubViews() {
@@ -171,6 +168,16 @@ class HomePageVC: UIViewController {
         let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(respondToSwipeGesture(gesture:)))
         swipeUp.direction = .up
         self.slideCardView.addGestureRecognizer(swipeUp)
+    }
+    
+    private func showMapView() {
+        mapView.isHidden = false
+        listView.isHidden = true
+    }
+    
+    private func showListView() {
+        listView.isHidden = false
+        mapView.isHidden = true
     }
     
     // MARK: - Constraint Methods
