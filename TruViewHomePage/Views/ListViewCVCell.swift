@@ -56,6 +56,8 @@ class ListViewCVCell: UICollectionViewCell {
     
     private func addConstraints() {
         constrainThumbnailImage()
+        constrainBedAndBathLabel()
+        constrainSqFootageLabel()
     }
     
     // MARK: - Constraint Methods
@@ -63,5 +65,17 @@ class ListViewCVCell: UICollectionViewCell {
         aptThumbnail.translatesAutoresizingMaskIntoConstraints = false
         
         [aptThumbnail.topAnchor.constraint(equalTo: contentView.topAnchor), aptThumbnail.leadingAnchor.constraint(equalTo: contentView.leadingAnchor), aptThumbnail.trailingAnchor.constraint(equalTo: contentView.trailingAnchor), aptThumbnail.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.7)].forEach({$0.isActive = true})
+    }
+    
+    private func constrainBedAndBathLabel() {
+        bedAndbathLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        [bedAndbathLabel.topAnchor.constraint(equalTo: aptThumbnail.bottomAnchor), bedAndbathLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor), bedAndbathLabel.trailingAnchor.constraint(equalTo: contentView.centerXAnchor), bedAndbathLabel.heightAnchor.constraint(equalTo: aptThumbnail.heightAnchor, multiplier: 0.2)].forEach({$0.isActive = true})
+    }
+    
+    private func constrainSqFootageLabel() {
+        sqFootageLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        [sqFootageLabel.topAnchor.constraint(equalTo: bedAndbathLabel.bottomAnchor), sqFootageLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor), sqFootageLabel.trailingAnchor.constraint(equalTo: contentView.centerXAnchor), sqFootageLabel.heightAnchor.constraint(equalTo: bedAndbathLabel.heightAnchor)].forEach({$0.isActive = true})
     }
 }
