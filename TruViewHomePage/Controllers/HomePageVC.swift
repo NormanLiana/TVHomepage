@@ -272,7 +272,7 @@ extension HomePageVC: UICollectionViewDataSource {
 
 extension HomePageVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 125, height: 125)
+        return CGSize(width: 175, height: 175)
     }
 }
 
