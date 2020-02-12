@@ -30,6 +30,7 @@ class HomePageVC: UIViewController {
         let items = ["Map View", "List View"]
         let sc = UISegmentedControl(items: items)
         sc.selectedSegmentIndex = 0
+        sc.addTarget(self, action: #selector(segControlValueChanged(_:)), for: .valueChanged)
         return sc
     }()
     
@@ -38,16 +39,15 @@ class HomePageVC: UIViewController {
         return mv
     }()
     
-    // MARK: - Slide card UI Objects
-    lazy var slideCardView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .gray
-        view.clipsToBounds = true
-        view.layer.cornerRadius = 20
-        return view
+    lazy var listView: ListView = {
+        let lv = ListView()
+        return lv
     }()
     
-    
+    lazy var slideCardView: SlideCardView = {
+        let scv = SlideCardView()
+        return scv
+    }()
     
     // MARK: - Properties
     let slideCardHeight: CGFloat = 900
@@ -57,21 +57,14 @@ class HomePageVC: UIViewController {
     var halfOpenSlideCardViewTopConstraint: NSLayoutConstraint?
     var fullScreenSlideCardTopConstraint: NSLayoutConstraint?
     
-    unowned var listView: ListView { return self.view as! ListView}
-    unowned var listCV: UICollectionView { return listView.collectionView}
-    
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpVCViews()
+        setUpInitialVCViews()
         addSubViews()
         addConstraints()
         delegation()
         loadGestures()
-    }
-    
-    override func loadView() {
-        self.view = ListView()
     }
     
     // MARK: - ObjC Methods
@@ -125,9 +118,24 @@ class HomePageVC: UIViewController {
         }
     }
     
+    @objc func segControlValueChanged(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            mapView.isHidden = false
+            listView.isHidden = true
+        case 1:
+            listView.isHidden = false
+            mapView.isHidden = true
+        default:
+            break
+        }
+    }
+    
     // MARK: - Private Methods
-    private func setUpVCViews() {
+    private func setUpInitialVCViews() {
         view.backgroundColor = .white
+        mapView.isHidden = false
+        listView.isHidden = true
     }
     
     private func addSubViews() {
@@ -135,7 +143,9 @@ class HomePageVC: UIViewController {
         view.addSubview(filterMenuButton)
         view.addSubview(mapListViewSegController)
         view.addSubview(mapView)
+        view.addSubview(listView)
         view.addSubview(slideCardView)
+        
     }
     
     private func addConstraints() {
@@ -143,13 +153,14 @@ class HomePageVC: UIViewController {
         constrainFilterMenuButton()
         constrainSegmentedController()
         constrainMapView()
+        constrainListView()
         // MARK: - Slide Card Constraint Methods
         constrainSlideCardView()
     }
     
     private func delegation() {
-        listCV.delegate = self
-        listCV.dataSource = self
+        listView.collectionView.delegate = self
+        listView.collectionView.dataSource = self
     }
     
     private func loadGestures() {
@@ -185,6 +196,12 @@ class HomePageVC: UIViewController {
         mapView.translatesAutoresizingMaskIntoConstraints = false
         
         [mapView.topAnchor.constraint(equalTo: mapListViewSegController.bottomAnchor), mapView.leadingAnchor.constraint(equalTo: view.leadingAnchor), mapView.trailingAnchor.constraint(equalTo: view.trailingAnchor), mapView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)].forEach({$0.isActive = true})
+    }
+    
+    private func constrainListView() {
+        listView.translatesAutoresizingMaskIntoConstraints = false
+        
+        [listView.topAnchor.constraint(equalTo: mapListViewSegController.bottomAnchor), listView.leadingAnchor.constraint(equalTo: view.leadingAnchor), listView.trailingAnchor.constraint(equalTo: view.trailingAnchor), listView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)].forEach({$0.isActive = true})
     }
     
     // MARK: - Constraint Methods for Slide Card View
@@ -234,7 +251,7 @@ extension HomePageVC: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let cell = listCV.dequeueReusableCell(withReuseIdentifier: CellIdentifiers.listViewCVCell.rawValue, for: indexPath) as? ListViewCVCell {
+        if let cell = listView.collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifiers.listViewCVCell.rawValue, for: indexPath) as? ListViewCVCell {
             cell.aptThumbnail.image = UIImage(systemName: "bed.double")
             return cell
         }
