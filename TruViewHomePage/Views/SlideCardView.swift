@@ -49,6 +49,37 @@ class SlideCardView: UIView {
         return txtView
     }()
     
+    // MARK: - Initializers
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        addSubViews()
+        addConstraints()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Private Methods
+    private func addSubViews() {
+        addSubview(upArrowIndicator)
+        addSubview(aptThumbnail)
+        addSubview(priceLabel)
+        addSubview(bedAndBathLabel)
+        addSubview(sqFootageLabel)
+        addSubview(aptDescriptionTextView)
+    }
+    
+    private func addConstraints() {
+        constrainArrowImage()
+        constrainAptThumbnailImage()
+        constrainBedAndBathlabel()
+        constrainSqFootagelabel()
+        constrainPricelabel()
+        constrainAptTextView()
+    }
+    
+    // MARK: - Constraint Methods
     private func constrainArrowImage() {
         upArrowIndicator.translatesAutoresizingMaskIntoConstraints = false
         
