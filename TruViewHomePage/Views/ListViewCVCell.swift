@@ -58,6 +58,7 @@ class ListViewCVCell: UICollectionViewCell {
         constrainThumbnailImage()
         constrainBedAndBathLabel()
         constrainSqFootageLabel()
+        constrainPriceLabel()
     }
     
     // MARK: - Constraint Methods
@@ -77,5 +78,11 @@ class ListViewCVCell: UICollectionViewCell {
         sqFootageLabel.translatesAutoresizingMaskIntoConstraints = false
         
         [sqFootageLabel.topAnchor.constraint(equalTo: bedAndbathLabel.bottomAnchor), sqFootageLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor), sqFootageLabel.trailingAnchor.constraint(equalTo: contentView.centerXAnchor), sqFootageLabel.heightAnchor.constraint(equalTo: bedAndbathLabel.heightAnchor)].forEach({$0.isActive = true})
+    }
+    
+    private func constrainPriceLabel() {
+        priceLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        [priceLabel.topAnchor.constraint(equalTo: aptThumbnail.bottomAnchor), priceLabel.leadingAnchor.constraint(equalTo: contentView.centerXAnchor), priceLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor), priceLabel.heightAnchor.constraint(equalTo: bedAndbathLabel.heightAnchor)].forEach({$0.isActive = true})
     }
 }
